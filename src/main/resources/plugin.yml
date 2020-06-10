@@ -1,0 +1,5 @@
+name: CustomServerPlugin
+main: us.jericho.mc.server.CustomServerPlugin
+version: 0.0
+api-version: 1.13
+commands:
