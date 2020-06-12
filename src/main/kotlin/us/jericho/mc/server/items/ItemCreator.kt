@@ -3,10 +3,16 @@ package us.jericho.mc.server.items
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
+import org.bukkit.inventory.meta.ItemMeta
 import us.jericho.mc.server.CustomServerPlugin
 import java.util.*
 
 open class ItemCreator {
+
+    // Created when make() is called
+    var stack: ItemStack? = null;
+    var meta: ItemMeta? = null;
+
     var material: Material? = null
     var amount = 1
 
@@ -30,6 +36,11 @@ open class ItemCreator {
         return this
     }
 
+    fun setMaterial(mat: Material): ItemCreator {
+        this.material = mat
+        return this
+    }
+
     fun randomAmount(min: Int, max: Int): ItemCreator {
         val rand = Random()
         this.amount = rand.nextInt(max - min + 1) + min
@@ -42,6 +53,18 @@ open class ItemCreator {
     }
 
     fun make(): ItemStack {
-        return ItemStack(this.material!!, this.amount)
+        this.stack = ItemStack(this.material!!, this.amount)
+        this.meta = this.stack?.itemMeta;
+
+        this.addAttributes();
+
+        return this.stack!!;
+    }
+
+    /**
+     * To be oreridden
+     */
+    open fun addAttributes() {
+        Bukkit.broadcastMessage("Oh shit")
     }
 }

@@ -33,7 +33,7 @@ object MobSpawnListener : Listener {
              */
             if(event.entityType == EntityType.COW) {
                 var randn = Math.random();
-                if(randn > 0.975) {
+                if(randn < 0.005) {
                     CustomServerPlugin.logger().info("MOOSHROOM FROM BREEDING: " + randn)
                     event.isCancelled = true;
 
