@@ -37,10 +37,8 @@ object MobSpawnListener : Listener {
                     CustomServerPlugin.logger().info("MOOSHROOM FROM BREEDING: " + randn)
                     event.isCancelled = true;
 
-                    repeat(2) {
-                        var mooshroom: MushroomCow = event.location.world?.spawnEntity(event.location, EntityType.MUSHROOM_COW) as MushroomCow;
-                        mooshroom.setBaby();
-                    }
+                    var mooshroom: MushroomCow = event.location.world?.spawnEntity(event.location, EntityType.MUSHROOM_COW) as MushroomCow;
+                    mooshroom.setBaby();
                 }
             }
         }

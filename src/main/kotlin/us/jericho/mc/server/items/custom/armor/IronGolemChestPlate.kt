@@ -10,8 +10,7 @@ import java.util.*
 class IronGolemChestPlate : ItemCreator {
 
     constructor() : super() {
-        this.setMaterial(Material.IRON_CHESTPLATE);
-        this.setAmount(1);
+        this.material(Material.IRON_CHESTPLATE).amount(1);
     }
 
 
