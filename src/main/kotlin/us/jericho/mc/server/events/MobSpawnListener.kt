@@ -1,6 +1,7 @@
 package us.jericho.mc.server.events
 
 //import us.jericho.mc.server.EventUtil
+import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.attribute.Attributable
 import org.bukkit.attribute.Attribute
@@ -14,6 +15,7 @@ import org.bukkit.inventory.ItemStack
 import us.jericho.mc.server.CustomServerPlugin
 import us.jericho.mc.server.items.ItemCreator
 import us.jericho.mc.server.mobs.unused.ZombieHorseSpawning
+import us.jericho.mc.server.worldguard.ZombieHordeFlag
 
 
 object MobSpawnListener : Listener {
@@ -21,17 +23,39 @@ object MobSpawnListener : Listener {
     @EventHandler
     public fun onCreatureSpawn(event: CreatureSpawnEvent) {
 
-        if(event.spawnReason == CreatureSpawnEvent.SpawnReason.NATURAL || event.spawnReason == CreatureSpawnEvent.SpawnReason.SPAWNER_EGG) {
+        when(event.spawnReason) {
+            CreatureSpawnEvent.SpawnReason.NATURAL, CreatureSpawnEvent.SpawnReason.SPAWNER_EGG -> this.naturalSpawn(event);
+            CreatureSpawnEvent.SpawnReason.BREEDING -> this.breedingSpawn(event);
+        }
+    }
 
-            if(event.entityType == EntityType.SKELETON) {
-                ZombieHorseSpawning.onSkeletonSpawn(event)
-            }
+    @EventHandler
+    public fun ccc() {
 
-        } else if (event.spawnReason == CreatureSpawnEvent.SpawnReason.BREEDING) {
-            /**
-             * Chance to get twin Mooshrooms from breeding cows
-             */
-            if(event.entityType == EntityType.COW) {
+    }
+
+    fun naturalSpawn(event: CreatureSpawnEvent) {
+
+
+        if(isOverwolrdHostile(event.entityType)) {
+            if (ZombieHordeFlag.onMobSpawn(event))
+                return;
+        }
+
+        
+
+        when(event.entityType) {
+            EntityType.SKELETON -> { ZombieHorseSpawning.onSkeletonSpawn(event) };
+        }
+
+    }
+
+    fun breedingSpawn(event: CreatureSpawnEvent) {
+        /**
+         * Chance to get single Mooshrooms from breeding cows
+         */
+        when(event.entityType) {
+            EntityType.COW -> {
                 var randn = Math.random();
                 if(randn < 0.005) {
                     CustomServerPlugin.logger().info("MOOSHROOM FROM BREEDING: " + randn)
@@ -42,7 +66,10 @@ object MobSpawnListener : Listener {
                 }
             }
         }
+    }
 
+    fun isOverwolrdHostile(et: EntityType): Boolean {
+        return et == EntityType.ZOMBIE || et == EntityType.SKELETON || et == EntityType.CREEPER || et == EntityType.SPIDER;
     }
 
 }

@@ -104,6 +104,10 @@
       <id>spigot-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
+    <repository>
+      <id>sk89q-repo</id>
+      <url>https://maven.enginehub.org/repo/</url>
+    </repository>
   </repositories>
   <dependencies>
     <dependency>
@@ -131,6 +135,38 @@
         <exclusion>
           <artifactId>kotlin-test-common</artifactId>
           <groupId>org.jetbrains.kotlin</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.sk89q.worldguard</groupId>
+      <artifactId>worldguard-bukkit</artifactId>
+      <version>7.0.2</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>bukkit</artifactId>
+          <groupId>org.bukkit</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>worldedit-bukkit</artifactId>
+          <groupId>com.sk89q.worldedit</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>worldguard-core</artifactId>
+          <groupId>com.sk89q.worldguard</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>paperlib</artifactId>
+          <groupId>io.papermc</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>commandbook</artifactId>
+          <groupId>com.sk89q</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>bstats-bukkit</artifactId>
+          <groupId>org.bstats</groupId>
         </exclusion>
       </exclusions>
     </dependency>

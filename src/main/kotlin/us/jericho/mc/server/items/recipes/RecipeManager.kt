@@ -1,13 +1,8 @@
-package us.jericho.mc.server.recipes
+package us.jericho.mc.server.items.recipes
 
 import org.bukkit.Bukkit
-import org.bukkit.Material
-import org.bukkit.NamespacedKey
-import org.bukkit.inventory.ItemStack
-import org.bukkit.inventory.ShapedRecipe
-import org.bukkit.plugin.Plugin
 import us.jericho.mc.server.CustomServerPlugin
-import us.jericho.mc.server.recipes.tweaks.WoolToString
+import us.jericho.mc.server.items.recipes.tweaks.WoolToString
 
 
 object RecipeManager {

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
+<module version="4">
   <component name="AutoImportedSourceRoots">
     <option name="directories">
       <list>
-        <option value="C:\Users\Jericho\IdeaProjects\CustomServerPlugin/src/main/java" />
-        <option value="C:\Users\Jericho\IdeaProjects\CustomServerPlugin/src/main/kotlin" />
-        <option value="C:\Users\Jericho\IdeaProjects\CustomServerPlugin/src/test/java" />
-        <option value="C:\Users\Jericho\IdeaProjects\CustomServerPlugin/src/test/kotlin" />
+        <option value="C:\Users\Jericho\IdeaProjects\ServerPlugin/src/main/java" />
+        <option value="C:\Users\Jericho\IdeaProjects\ServerPlugin/src/main/kotlin" />
+        <option value="C:\Users\Jericho\IdeaProjects\ServerPlugin/src/test/java" />
+        <option value="C:\Users\Jericho\IdeaProjects\ServerPlugin/src/test/kotlin" />
       </list>
     </option>
   </component>

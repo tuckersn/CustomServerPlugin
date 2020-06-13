@@ -4,7 +4,9 @@ import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import us.jericho.mc.server.events.DeathEventListener
 import us.jericho.mc.server.events.MobSpawnListener
-import us.jericho.mc.server.recipes.RecipeManager
+import us.jericho.mc.server.items.recipes.RecipeManager
+import us.jericho.mc.server.worldguard.DemoFlag
+import us.jericho.mc.server.worldguard.ZombieHordeFlag
 import java.util.logging.Logger
 
 class CustomServerPlugin: JavaPlugin() {
@@ -21,8 +23,21 @@ class CustomServerPlugin: JavaPlugin() {
         }
     }
 
-    override fun onEnable() {
 
+    /**
+     * Runs as soon as possible (other plugin's could be loaded or unloaded at this time)
+     */
+    override  fun onLoad() {
+        StartupText.load();
+        DemoFlag.onLoad();
+        ZombieHordeFlag.onLoad();
+    }
+
+    /**
+     * This happens after every plugin has been loaded
+     */
+    override fun onEnable() {
+        StartupText.enable();
         CustomServerPlugin.instance = this;
 
         // Listeners

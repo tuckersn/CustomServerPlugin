@@ -1,7 +1,6 @@
-package us.jericho.mc.server.recipes
+package us.jericho.mc.server.items.recipes
 
 import org.bukkit.NamespacedKey
-import org.bukkit.entity.Item
 import org.bukkit.inventory.Recipe
 import us.jericho.mc.server.CustomServerPlugin
 

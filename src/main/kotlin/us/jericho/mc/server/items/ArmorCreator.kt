@@ -14,9 +14,5 @@ class ArmorCreator : ItemCreator {
     }
 
 
-    override fun make() {
-        
-    }
-
 
 }

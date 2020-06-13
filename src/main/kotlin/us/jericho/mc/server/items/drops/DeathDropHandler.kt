@@ -1,7 +1,6 @@
-package us.jericho.mc.server.drops
+package us.jericho.mc.server.items.drops
 
 import org.bukkit.event.entity.EntityDeathEvent
-import us.jericho.mc.server.items.ItemCreator
 import us.jericho.mc.server.events.DeathEventHandler
 import us.jericho.mc.server.items.custom.armor.IronGolemChestPlate
 

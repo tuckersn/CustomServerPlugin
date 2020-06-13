@@ -1,13 +1,10 @@
-package us.jericho.mc.server.recipes.tweaks
+package us.jericho.mc.server.items.recipes.tweaks
 
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.Recipe
 import org.bukkit.inventory.ShapelessRecipe
-import org.bukkit.plugin.Plugin
-import us.jericho.mc.server.CustomServerPlugin
-import us.jericho.mc.server.recipes.RecipeBase
+import us.jericho.mc.server.items.recipes.RecipeBase
 
 object WoolToString : RecipeBase("wool_to_string") {
 
